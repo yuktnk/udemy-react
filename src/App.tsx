@@ -18,13 +18,13 @@ export const App = () => {
     setTodoText("");
   };
 
-  const onClickDelete = (index) => {
+  const onClickDelete = (index: number): void => {
     const newTodos = [...incompleteTodos];
     newTodos.splice(index, 1);
     setIncompleteTodos(newTodos);
   };
 
-  const onClickComplete = (index) => {
+  const onClickComplete = (index: number): void => {
     const newIncompleteTodos = [...incompleteTodos];
     newIncompleteTodos.splice(index, 1);
     const newCompleteTodos = [...completeTodos, incompleteTodos[index]];
@@ -32,7 +32,7 @@ export const App = () => {
     setIncompleteTodos(newIncompleteTodos);
   };
 
-  const onClickBack = (index) => {
+  const onClickBack = (index: number): void => {
     const newCompleteTodos = [...completeTodos];
     newCompleteTodos.splice(index, 1);
     const newIncompleteTodos = [...incompleteTodos, completeTodos[index]];

@@ -9,16 +9,22 @@ const style = {
   borderRadius: "8px"
 };
 
-export const IncompleteTodos = (props) => {
+type IncompleteTodosProps = {
+  todos: string[];
+  onClickComplete: any;
+  onClickDelete: any;
+};
+
+export const IncompleteTodos: React.FC<IncompleteTodosProps> = (props) => {
   const { todos, onClickComplete, onClickDelete } = props;
 
   return (
     <div style={style}>
-      <p class="title">未完了のtodo</p>
+      <p className="title">未完了のtodo</p>
       <ul>
-        {todos.map((todo, index) => {
+        {todos.map((todo: string, index: number) => {
           return (
-            <li key={todo} class="list-row">
+            <li key={todo} className="list-row">
               <p>{todo}</p>
               <button onClick={() => onClickComplete(index)}>完了</button>
               <button onClick={() => onClickDelete(index)}>削除</button>

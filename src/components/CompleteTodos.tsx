@@ -9,15 +9,20 @@ const style = {
   borderRadius: "8px"
 };
 
-export const CompleteTodos = (props) => {
+type CompleteTodosProps = {
+  todos: string[];
+  onClickBack: any;
+};
+
+export const CompleteTodos: React.FC<CompleteTodosProps> = (props) => {
   const { todos, onClickBack } = props;
   return (
     <div style={style}>
-      <p class="title">完了済のtodo</p>
+      <p className="title">完了済のtodo</p>
       <ul>
-        {todos.map((todo, index) => {
+        {todos.map((todo: string, index: number) => {
           return (
-            <li key={todo} class="list-row">
+            <li key={todo} className="list-row">
               <p>{todo}</p>
               <button onClick={() => onClickBack(index)}>戻す</button>
             </li>

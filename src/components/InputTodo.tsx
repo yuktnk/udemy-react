@@ -9,7 +9,14 @@ const style = {
   margin: "8px"
 };
 
-export const InputTodo = (props) => {
+type InputTodoProps = {
+  todoText: string;
+  onChange: any;
+  onClick: any;
+  disabled: boolean;
+};
+
+export const InputTodo: React.FC<InputTodoProps> = (props) => {
   const { todoText, onChange, onClick, disabled } = props;
   return (
     <div style={style}>
