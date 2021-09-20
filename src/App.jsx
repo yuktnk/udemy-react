@@ -2,14 +2,27 @@ import React, { useState } from "react";
 import "./styles.css";
 
 export const App = () => {
+  const [todoText, setTodoText] = useState("");
   const [incompleteTodos, setIncompleteTodos] = useState(["あああ", "いいい"]);
   const [completeTodos, setCompleteTodos] = useState(["ううう", "えええ"]);
+
+  const onChangeTodoText = (e) => setTodoText(e.target.value);
+
+  const onClickAdd = () => {
+    const newTodos = [...incompleteTodos, todoText];
+    setIncompleteTodos(newTodos);
+  };
 
   return (
     <>
       <div class="input-area">
-        <input type="text" placeholder="to do input" />
-        <button>追加</button>
+        <input
+          value={todoText}
+          onChange={onChangeTodoText}
+          type="text"
+          placeholder="to do input"
+        />
+        <button onClick={onClickAdd}>追加</button>
       </div>
       <div class="incomplete-area">
         <p class="title">未完了のtodo</p>
