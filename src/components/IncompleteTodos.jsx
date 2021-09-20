@@ -11,6 +11,7 @@ const style = {
 
 export const IncompleteTodos = (props) => {
   const { todos, onClickComplete, onClickDelete } = props;
+
   return (
     <div style={style}>
       <p class="title">未完了のtodo</p>
